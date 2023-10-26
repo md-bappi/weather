@@ -14,10 +14,10 @@ async function checkWeather(cityName) {
   if (!response.ok) throw new Error("");
   const data = await response.json();
 
-  temp.innerHTML = data.main.temp;
+  temp.innerHTML = Math.round(data.main.temp) + `°C`;
   city.innerHTML = data.name;
-  humidity.innerHTML = data.main.humidity;
-  wind.innerHTML = data.wind.speed;
+  humidity.innerHTML = data.main.humidity + "%";
+  wind.innerHTML = data.wind.speed + "km/h";
 
   input.value = "";
 }
